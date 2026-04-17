@@ -74,8 +74,12 @@ export default function RootLayout({
           `}
         </Script>
         <Providers>
-          <Navbar />
-          <main>{children}</main>
+          <header>
+            <Navbar />
+          </header>
+          <main id="main-content">
+            {children}
+          </main>
           <Footer />
           <CookieBanner />
         </Providers>
