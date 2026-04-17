@@ -33,34 +33,42 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr" className={`${inter.variable} ${creepster.variable}`}>
-      <body className="min-h-screen antialiased static-bg">
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-4G8HC9L0PY"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
+      <body className="min-h-screen antialiased">
+        <Script id="consent-logic" strategy="afterInteractive">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-4G8HC9L0PY');
-          `}
-        </Script>
-        <Script id="microsoft-clarity" strategy="afterInteractive">
-          {`
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "wcuq80rlir");
+            const consent = localStorage.getItem("cookie_consent");
+            if (consent === "accepted") {
+              // Google Analytics
+              const gaScript = document.createElement("script");
+              gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-4G8HC9L0PY";
+              gaScript.async = true;
+              document.head.appendChild(gaScript);
+
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-4G8HC9L0PY');
+
+              // Microsoft Clarity
+              (function(c,l,a,r,i,t,y){
+                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+              })(window, document, "clarity", "script", "wcuq80rlir");
+            }
           `}
         </Script>
         <Providers>
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <CookieBanner />
         </Providers>
       </body>
+    </html>
+  );
+}
+</body>
     </html>
   );
 }
