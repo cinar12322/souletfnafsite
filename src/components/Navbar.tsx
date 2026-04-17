@@ -6,9 +6,8 @@ import { useSession, signOut } from "next-auth/react";
 
 const navLinks = [
   { href: "/#ozellikler", label: "Özellikler" },
-  { href: "/#trailer", label: "Medya" },
   { href: "/#waitlist", label: "Waitlist" },
-  { href: "/#hakkinda", label: "Hakkında" },
+  { href: "/#hakkinda", label: "Hakkımızda" },
   { href: "/donate", label: "Bağış Yap" },
 ];
 

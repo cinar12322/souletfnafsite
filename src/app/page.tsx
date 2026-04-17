@@ -130,13 +130,10 @@ export default function Home() {
               Waitlist'e Katıl
             </a>
             <a
-              href="#trailer"
+              href="#hakkinda"
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/5 hover:bg-white/10 text-white font-medium rounded-xl border border-white/10 transition-all text-sm"
             >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-              Trailer İzle
+              Hakkımızda
             </a>
           </div>
 
@@ -168,29 +165,6 @@ export default function Home() {
             {features.map((feature) => (
               <GameCard key={feature.title} {...feature} />
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* === TRAILER === */}
-      <section id="trailer" className="py-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-xs font-medium text-white uppercase tracking-wider">Medya</span>
-            <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4 text-white">Oynanış Videosu</h2>
-          </div>
-
-          <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/5 bg-surface">
-            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-surface to-black">
-              <div className="text-center">
-                <button className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-white/5 text-white hover:bg-white/10 transition-all cursor-pointer border border-white/10">
-                  <svg className="w-6 h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </button>
-                <p className="text-text-muted text-sm">Trailer yakında yayınlanacak</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -240,12 +214,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* === HAKKINDA === */}
+      {/* === HAKKIMIZDA === */}
       <section id="hakkinda" className="py-24 px-6 border-t border-white/5">
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="text-xs font-medium text-white uppercase tracking-wider">Hakkında</span>
+              <span className="text-xs font-medium text-white uppercase tracking-wider">Hakkımızda</span>
               <h2 className="text-3xl font-bold mt-3 mb-6 text-white">FNAFO Nedir?</h2>
               <p className="text-text-secondary leading-relaxed mb-4">
                 FNAFO, bağımsız Türk geliştiriciler tarafından yapılan bir atmosferik

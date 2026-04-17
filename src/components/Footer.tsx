@@ -22,10 +22,14 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-medium text-text-primary mb-4">Oyun</h4>
             <ul className="space-y-2.5">
-              {["Özellikler", "Medya", "İndir", "Hakkında"].map((item) => (
-                <li key={item}>
-                  <a href={`#${item.toLowerCase()}`} className="text-sm text-text-muted hover:text-text-primary transition-colors">
-                    {item}
+              {[
+                { label: "Özellikler", href: "#ozellikler" },
+                { label: "İndir", href: "#indir" },
+                { label: "Hakkımızda", href: "#hakkinda" }
+              ].map((item) => (
+                <li key={item.label}>
+                  <a href={item.href} className="text-sm text-text-muted hover:text-text-primary transition-colors">
+                    {item.label}
                   </a>
                 </li>
               ))}
@@ -37,9 +41,6 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {[
                 { label: "Discord", href: "#" },
-                { label: "YouTube", href: "#" },
-                { label: "Twitter / X", href: "#" },
-                { label: "Reddit", href: "#" },
               ].map((item) => (
                 <li key={item.label}>
                   <a href={item.href} className="text-sm text-text-muted hover:text-text-primary transition-colors">
