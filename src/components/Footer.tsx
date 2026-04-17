@@ -26,7 +26,6 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {[
                 { label: "Özellikler", href: "#ozellikler" },
-                { label: "İndir", href: "#indir" },
                 { label: "Hakkımızda", href: "#hakkinda" }
               ].map((item) => (
                 <li key={item.label}>
