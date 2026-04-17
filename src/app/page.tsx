@@ -3,6 +3,7 @@
 import { useState } from "react";
 import GameCard from "@/components/GameCard";
 import { joinWaitlist } from "./actions";
+import TurnstileWidget from "@/components/TurnstileWidget";
 
 const features = [
   {
@@ -71,15 +72,24 @@ const stats = [
 
 export default function Home() {
   const [email, setEmail] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
 
   async function handleWaitlistSubmit(e: React.FormEvent) {
     e.preventDefault();
+
+    if (!turnstileToken) {
+      setStatus("error");
+      setMessage("Lütfen bot doğrulamasını tamamlayın.");
+      return;
+    }
+
     setStatus("loading");
     
     const formData = new FormData();
     formData.append("email", email);
+    formData.append("turnstileToken", turnstileToken);
     
     const result = await joinWaitlist(formData);
     
@@ -195,8 +205,12 @@ export default function Home() {
           </p>
 
           <form className="relative group" onSubmit={handleWaitlistSubmit}>
-            <input
-              type="email"
+            <div className="mb-4">
+              <TurnstileWidget onVerify={setTurnstileToken} />
+            </div>
+            <div className="relative">
+              <input
+                type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="E-posta adresini yaz..."
@@ -211,7 +225,8 @@ export default function Home() {
             >
               {status === "loading" ? "..." : "Katıl"}
             </button>
-          </form>
+          </div>
+        </form>
           
           {message && (
             <p className={`mt-4 text-sm font-medium ${status === "success" ? "text-green-400" : "text-red-400"}`}>

@@ -3,20 +3,29 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
+import TurnstileWidget from "@/components/TurnstileWidget";
 
 export default function GirisPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function handleCredentialsLogin(e: React.FormEvent) {
     e.preventDefault();
     setError("");
+
+    if (!turnstileToken) {
+      setError("Lütfen bot doğrulamasını tamamlayın.");
+      return;
+    }
+
     setLoading(true);
     const res = await signIn("credentials", {
       email,
       password,
+      turnstileToken,
       redirect: false,
     });
     setLoading(false);
@@ -94,6 +103,9 @@ export default function GirisPage() {
               />
             </div>
             {error && <p className="text-xs text-red-500">{error}</p>}
+            
+            <TurnstileWidget onVerify={setTurnstileToken} />
+
             <button
               type="submit"
               disabled={loading}

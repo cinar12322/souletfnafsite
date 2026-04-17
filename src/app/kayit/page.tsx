@@ -3,11 +3,13 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
+import TurnstileWidget from "@/components/TurnstileWidget";
 
 export default function KayitPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function handleRegister(e: React.FormEvent) {
@@ -95,6 +97,9 @@ export default function KayitPage() {
                 required
               />
             </div>
+            
+            <TurnstileWidget onVerify={setTurnstileToken} />
+
             <button
               type="submit"
               disabled={loading}
