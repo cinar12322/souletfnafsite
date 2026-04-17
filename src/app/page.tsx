@@ -93,8 +93,9 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-16">
             <a
               href="#indirme"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white hover:bg-white/90 text-black font-semibold rounded-xl transition-all text-sm"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white hover:bg-white/90 text-black font-bold rounded-xl transition-all text-sm"
             >
+
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
@@ -178,19 +179,19 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-            <div className="p-6 rounded-2xl border border-white/5 bg-surface hover:border-primary/20 transition-all">
+            <div className="p-6 rounded-2xl border border-white/5 bg-surface hover:border-white/10 transition-all">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold">Windows</h3>
+                  <h3 className="font-semibold text-white">Windows</h3>
                   <p className="text-xs text-text-muted">Win 10/11 · 64bit · 4GB RAM</p>
                 </div>
               </div>
-              <button className="w-full py-2.5 bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-lg transition-colors">
+              <button className="w-full py-2.5 bg-white hover:bg-white/90 text-black text-sm font-bold rounded-lg transition-colors">
                 İndir — Demo v0.8.2
               </button>
             </div>

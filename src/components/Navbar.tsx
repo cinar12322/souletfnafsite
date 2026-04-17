@@ -31,11 +31,9 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-white font-bold text-sm">S</span>
-            </div>
             <span className="text-lg font-semibold text-text-primary">Soulet</span>
           </Link>
+
 
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
@@ -97,7 +95,7 @@ export default function Navbar() {
               <Link href="/giris" onClick={() => setMenuOpen(false)} className="px-4 py-2.5 text-sm text-text-secondary">
                 Giriş Yap
               </Link>
-              <a href="#indirme" className="px-4 py-2.5 text-sm font-medium bg-primary text-white rounded-lg text-center">
+              <a href="#indirme" className="px-4 py-2.5 text-sm font-bold bg-white text-black rounded-lg text-center">
                 İndir
               </a>
             </div>
@@ -106,5 +104,4 @@ export default function Navbar() {
       )}
     </nav>
   );
-}
 }
