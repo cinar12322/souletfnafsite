@@ -3,6 +3,7 @@
 import { prisma } from "@/lib/prisma";
 import { verifyTurnstileToken } from "@/lib/turnstile";
 import bcrypt from "bcryptjs";
+import { signIn } from "@/auth";
 
 export async function joinWaitlist(formData: FormData) {
   const email = formData.get("email") as string;
@@ -68,7 +69,7 @@ export async function registerUser(formData: FormData) {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = await prisma.user.create({
+    await prisma.user.create({
       data: {
         name,
         email,
@@ -76,8 +77,19 @@ export async function registerUser(formData: FormData) {
       },
     });
 
+    // Otomatik giriş yap
+    await signIn("credentials", {
+      email,
+      password,
+      turnstileToken: process.env.AUTH_SECRET,
+      redirectTo: "/",
+    });
+
     return { success: true };
   } catch (error: any) {
+    if (error.name === "AuthError" || error.message?.includes("NEXT_REDIRECT")) {
+      throw error; // Next.js'in redirect mekanizmasını bozmamak için
+    }
     console.error("Registration error:", error);
     return { error: "Hesap oluşturulurken bir hata oluştu." };
   }

@@ -12,8 +12,10 @@ Soulet, FNAF tarzı bir korku oyununun tanıtım/landing page sitesidir. Tek say
 | Dil | TypeScript | 6.x |
 | Stil | TailwindCSS v4 (`@theme` directive, CSS-first config) | 4.2 |
 | Auth | NextAuth v5 beta (Google, Discord, Credentials) | 5.0.0-beta.31 |
+| DB / ORM | Prisma + MongoDB | 6.x |
+| Güvenlik | Cloudflare Turnstile (Bot Koruması) | @marsidev/react-turnstile |
 | React | React 19 | 19.2 |
-| Deploy | Vercel (henüz yapılmadı) | - |
+| Deploy | Vercel | - |
 
 **Tailwind v4 Uyarısı:** `tailwind.config.ts` YOKTUR. Tema `src/app/globals.css` içinde `@theme {}` bloğuyla tanımlanır. Eski v3 config syntax'ı kullanma.
 
@@ -22,17 +24,23 @@ Soulet, FNAF tarzı bir korku oyununun tanıtım/landing page sitesidir. Tek say
 ```
 src/
 ├── app/
-│   ├── api/auth/[...nextauth]/route.ts  → NextAuth API route (GET, POST handler export)
-│   ├── giris/page.tsx                   → Giriş sayfası (client component)
+│   ├── actions.ts                       → Server Actions (Waitlist vb.)
+│   ├── api/auth/[...nextauth]/route.ts  → NextAuth API route
+│   ├── giris/page.tsx                   → Giriş sayfası
+│   ├── kayit/page.tsx                   → Kayıt sayfası
 │   ├── globals.css                      → Tailwind v4 tema + custom animasyonlar
-│   ├── layout.tsx                       → Root layout (Inter + Creepster font, Providers, Navbar, Footer)
-│   └── page.tsx                         → Ana sayfa (Hero, Özellikler, Trailer, İndirme, Hakkında bölümleri)
+│   ├── layout.tsx                       → Root layout
+│   └── page.tsx                         → Ana sayfa
 ├── components/
-│   ├── Navbar.tsx    → Sabit üst navbar, scroll'da blur efekti, mobil hamburger menü (client)
-│   ├── Footer.tsx    → 4 sütunlu footer (Oyun bilgi, linkler, topluluk) (server)
-│   ├── GameCard.tsx  → Özellik kartı komponenti (icon + title + desc) (server)
-│   └── Providers.tsx → SessionProvider wrapper (client)
-└── auth.ts           → NextAuth config (Google, Discord, Credentials provider'ları)
+│   ├── TurnstileWidget.tsx → Cloudflare Bot Koruması widget'ı
+│   ├── Navbar.tsx          → Üst navbar
+│   ├── Footer.tsx          → Alt footer
+│   ├── GameCard.tsx        → Özellik kartı
+│   └── Providers.tsx       → SessionProvider wrapper
+├── lib/
+│   ├── prisma.ts           → Prisma Client singleton
+│   └── turnstile.ts        → Server-side Turnstile doğrulama logic'i
+└── auth.ts                 → NextAuth config + Turnstile doğrulaması
 ```
 
 ## Tema & Renk Paleti (globals.css @theme)
@@ -67,7 +75,7 @@ src/
 - **NextAuth v5** export pattern: `export const { handlers, signIn, signOut, auth } = NextAuth({...})`
 - API route: `src/app/api/auth/[...nextauth]/route.ts` → `export const { GET, POST } = handlers`
 - **Provider'lar:** Google, Discord, Credentials
-- **Credentials demo:** `demo@soulet.com` / `demo123` (hardcoded, DB yok)
+- **Credentials:** Turnstile bot koruması zorunludur.
 - **Custom giriş sayfası:** `/giris`
 - **SessionProvider:** `Providers.tsx` ile layout'ta sarmalanmış
 
@@ -84,35 +92,45 @@ Ana sayfa tek bir server component, 5 bölümden oluşur:
 - Desktop: 4 link (Özellikler, Medya, İndir, Hakkında) + Giriş Yap + İndir butonu
 - Mobil: Hamburger menü, aynı linkler
 
-## Henüz Yapılmayanlar
-- [ ] Prisma + Supabase veritabanı bağlantısı
+## Yapılanlar & Yapılacaklar
+- [x] Prisma + MongoDB veritabanı bağlantısı
+- [x] Cloudflare Turnstile Bot Koruması (Login, Register, Waitlist)
 - [ ] Google Analytics + Microsoft Clarity entegrasyonu
-- [ ] Vercel deploy
+- [x] Vercel deploy (Yapıldı, `git push` unutma!)
 - [ ] Gerçek OAuth provider env variable'ları (AUTH_GOOGLE_ID vb.)
 - [ ] Trailer video embed
-- [ ] Gerçek kullanıcı kayıt/giriş sistemi (şu an sadece demo credentials)
+- [x] Gerçek kullanıcı kayıt/giriş sistemi (Prisma entegrasyonu başladı)
 
-## Env Variables (gerekli ama henüz tanımlanmamış)
-```
+## Env Variables (Vercel/Local)
+```env
 AUTH_SECRET=
 AUTH_GOOGLE_ID=
 AUTH_GOOGLE_SECRET=
 AUTH_DISCORD_ID=
 AUTH_DISCORD_SECRET=
 DATABASE_URL=
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=
+TURNSTILE_SECRET_KEY=
 ```
 
 ## Komutlar
 ```bash
-npm run dev          # Dev server (varsayılan port: 3000)
-npm run dev -- -p 3001  # Port 3001'de çalıştır
+npm run dev          # Dev server
 npm run build        # Production build
 npm run lint         # ESLint
+npx prisma generate  # Prisma şeması değişirse mutlaka çalıştır
 ```
+
+## Deployment Checklist (UNUTMA!)
+1. `git add .`
+2. `git commit -m "açıklama"`
+3. **`git push origin main`** (Vercel'e gitmesi için zorunlu!)
+4. Vercel Dashboard'dan build durumunu kontrol et.
+5. Yeni bir `.env` değişkeni eklediysen Vercel Settings -> Environment Variables kısmına ekle ve "Redeploy" yap.
 
 ## Önemli Kurallar
 - Kullanıcı Türkçe konuşuyor, site içeriği Türkçe
-- Tailwind v4 kullanılıyor — `@theme {}` bloğu ile CSS-first config, `tailwind.config.ts` dosyası YOK
-- NextAuth v5 beta — v4 API'si farklıdır, `auth()` server-side session getter
+- Tailwind v4 kullanılıyor — `@theme {}` bloğu ile CSS-first config
+- NextAuth v5 beta
+- Turnstile bot koruması Credentials login ve Waitlist formlarında aktiftir.
 - path alias: `@/*` → `./src/*`
-- Tüm inline SVG icon'lar kullanılıyor, icon kütüphanesi yok

@@ -30,9 +30,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           throw new Error("Bot dogrulamasi eksik.");
         }
 
-        const isValid = await verifyTurnstileToken(token);
-        if (!isValid) {
-          throw new Error("Bot dogrulamasi basarisiz.");
+        // Server-side bypass for automatic login after registration
+        const isInternalBypass = token === process.env.AUTH_SECRET;
+
+        if (!isInternalBypass) {
+          const isValid = await verifyTurnstileToken(token);
+          if (!isValid) {
+            throw new Error("Bot dogrulamasi basarisiz.");
+          }
         }
 
         const email = credentials?.email as string;

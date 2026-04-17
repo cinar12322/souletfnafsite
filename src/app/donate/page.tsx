@@ -24,8 +24,18 @@ function DonateContent() {
       link: 'https://www.shopier.com/soulet/46251824',
       requiresLogin: true
     },
-    { amount: '100 TL', description: 'Sunucumuzun ayakta kalmasını sağlayın.' },
-    { amount: '200 TL', description: 'En büyük destekçilerimizden biri olun.' },
+    { 
+      amount: '100 TL', 
+      description: 'Sunucumuzun ayakta kalmasını sağlayın.', 
+      link: 'https://www.shopier.com/soulet/46266547',
+      requiresLogin: true
+    },
+    { 
+      amount: '200 TL', 
+      description: 'En büyük destekçilerimizden biri olun.', 
+      link: 'https://www.shopier.com/soulet/46266554',
+      requiresLogin: true
+    },
   ];
 
   useEffect(() => {
