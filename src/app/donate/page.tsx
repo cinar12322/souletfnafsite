@@ -23,14 +23,6 @@ export default function DonatePage() {
 
   return (
     <main className="container mx-auto px-4 py-32 space-y-12 min-h-screen" id="main-content">
-      {/* Google AdSense Script */}
-      <Script 
-        async 
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2383320302375930"
-        crossOrigin="anonymous"
-        strategy="afterInteractive"
-      />
-
       <div className="text-center space-y-4">
         <h1 className="text-5xl font-bold tracking-tighter text-white font-creepy">BAĞIŞ YAP</h1>
         <p className="text-gray-400 max-w-2xl mx-auto text-lg">
