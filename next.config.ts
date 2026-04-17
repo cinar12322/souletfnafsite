@@ -28,7 +28,6 @@ const nextConfig: NextConfig = {
               "font-src 'self' https://fonts.gstatic.com;",
               "frame-ancestors 'self';",
               "upgrade-insecure-requests;",
-              "require-trusted-types-for 'script';",
             ].join(" "),
           },
           {
