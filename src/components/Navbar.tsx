@@ -9,6 +9,7 @@ const navLinks = [
   { href: "#trailer", label: "Medya" },
   { href: "#waitlist", label: "Waitlist" },
   { href: "#hakkinda", label: "Hakkında" },
+  { href: "/donate", label: "Bağış Yap" },
 ];
 
 export default function Navbar() {
