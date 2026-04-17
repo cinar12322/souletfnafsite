@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import GameCard from "@/components/GameCard";
+import { joinWaitlist } from "./actions";
 
 const features = [
   {
@@ -68,6 +70,29 @@ const stats = [
 ];
 
 export default function Home() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
+
+  async function handleWaitlistSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus("loading");
+    
+    const formData = new FormData();
+    formData.append("email", email);
+    
+    const result = await joinWaitlist(formData);
+    
+    if (result.error) {
+      setStatus("error");
+      setMessage(result.error);
+    } else {
+      setStatus("success");
+      setMessage("Waitlist'e başarıyla katıldın! Teşekkürler.");
+      setEmail("");
+    }
+  }
+
   return (
     <>
       {/* === HERO === */}
@@ -76,11 +101,6 @@ export default function Home() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full bg-white/5 blur-[120px]" />
 
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-            <span className="text-xs font-medium text-text-secondary">Erken Erişim — v0.8.2</span>
-          </div>
-
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1] text-white">
             Karanlıkta bir hikaye
             <br />
@@ -174,20 +194,31 @@ export default function Home() {
             Soulet yayınlandığında ilk sen haberdar ol ve özel erken erişim ödüllerini kazan.
           </p>
 
-          <form className="relative group" onSubmit={(e) => { e.preventDefault(); alert('Waitlist kaydı alındı!'); }}>
+          <form className="relative group" onSubmit={handleWaitlistSubmit}>
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="E-posta adresini yaz..."
               required
-              className="w-full px-6 py-4 bg-surface border border-white/5 rounded-2xl text-white focus:outline-none focus:border-white/20 transition-all pr-36"
+              disabled={status === "loading" || status === "success"}
+              className="w-full px-6 py-4 bg-surface border border-white/5 rounded-2xl text-white focus:outline-none focus:border-white/20 transition-all pr-36 disabled:opacity-50"
             />
             <button
               type="submit"
-              className="absolute right-2 top-2 bottom-2 px-6 bg-white text-black font-bold rounded-xl hover:bg-white/90 transition-all text-sm"
+              disabled={status === "loading" || status === "success"}
+              className="absolute right-2 top-2 bottom-2 px-6 bg-white text-black font-bold rounded-xl hover:bg-white/90 transition-all text-sm disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Katıl
+              {status === "loading" ? "..." : "Katıl"}
             </button>
           </form>
+          
+          {message && (
+            <p className={`mt-4 text-sm font-medium ${status === "success" ? "text-green-400" : "text-red-400"}`}>
+              {message}
+            </p>
+          )}
+
           <p className="mt-4 text-[10px] text-text-muted italic text-center">
             * Spam göndermiyoruz, sadece önemli güncellemeleri paylaşacağız.
           </p>
@@ -225,8 +256,8 @@ export default function Home() {
                   { label: "Platform", value: "Windows (macOS yakında)" },
                   { label: "Tür", value: "Korku / Gerilim / Hikaye" },
                   { label: "Motor", value: "Unreal Engine 5" },
-                  { label: "Durum", value: "Erken Erişim" },
-                  { label: "Fiyat", value: "Ücretsiz Demo" },
+                  { label: "Durum", value: "Waitlist" },
+                  { label: "Fiyat", value: "Ücretsiz" },
                 ].map((item) => (
                   <div key={item.label} className="flex justify-between items-center py-2 border-b border-white/5 last:border-0">
                     <span className="text-sm text-text-muted">{item.label}</span>
