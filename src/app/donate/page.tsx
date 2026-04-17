@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import Script from 'next/script';
 import { Heart, CheckCircle } from 'lucide-react';
 
@@ -10,6 +11,15 @@ export default function DonatePage() {
     { amount: '100 TL', description: 'Sunucumuzun ayakta kalmasını sağlayın.' },
     { amount: '200 TL', description: 'En büyük destekçilerimizden biri olun.' },
   ];
+
+  useEffect(() => {
+    try {
+      // @ts-ignore
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (err) {
+      console.error('AdSense error:', err);
+    }
+  }, []);
 
   return (
     <main className="container mx-auto px-4 py-32 space-y-12 min-h-screen" id="main-content">
@@ -26,6 +36,17 @@ export default function DonatePage() {
         <p className="text-gray-400 max-w-2xl mx-auto text-lg">
           Soulet projesini desteklemek ve topluluğumuzun büyümesine yardımcı olmak için bağış yapabilirsiniz. Tüm bağışlar geliştirme masrafları için kullanılır.
         </p>
+      </div>
+
+      {/* Reklam Alanı (Advertisement Area) */}
+      <div className="flex flex-col items-center justify-center w-full py-4 bg-white/5 border border-dashed border-white/10 rounded-xl overflow-hidden min-h-[120px]">
+        <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-2">Reklam / Advertisement</p>
+        <ins className="adsbygoogle"
+             style={{ display: 'block', width: '100%', textAlign: 'center' }}
+             data-ad-client="ca-pub-2383320302375930"
+             data-ad-slot="auto"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
