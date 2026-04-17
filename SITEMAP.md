@@ -4,6 +4,7 @@ Bu belge, Soulet projesinin mevcut sayfa yapısını ve bölümlerini listeler.
 
 ## 1. Ana Sayfalar (Routes)
 - **[Ana Sayfa (Home)](/)**: Oyunun tanıtımı, özellikleri ve waitlist katılım alanı.
+- **[Bağış Yap (Donate)](/donate)**: Geliştiricilere destek olmak için bağış sayfası.
 - **[Giriş Yap](/giris)**: Kullanıcı giriş sayfası (Google, Discord ve E-posta/Şifre desteği).
 - **[Kayıt Ol](/kayit)**: Yeni hesap oluşturma sayfası.
 
