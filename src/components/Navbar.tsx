@@ -58,7 +58,7 @@ export default function Navbar() {
             </Link>
             <a
               href="#indirme"
-              className="px-5 py-2 text-sm font-medium bg-primary hover:bg-primary-dark text-white rounded-lg transition-colors"
+              className="px-5 py-2 text-sm font-semibold bg-white hover:bg-white/90 text-black rounded-lg transition-colors"
             >
               İndir
             </a>
@@ -106,4 +106,5 @@ export default function Navbar() {
       )}
     </nav>
   );
+}
 }

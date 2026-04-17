@@ -70,19 +70,19 @@ export default function Home() {
     <>
       {/* === HERO === */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full bg-primary/5 blur-[120px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-transparent" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full bg-white/5 blur-[120px]" />
 
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
-            <span className="text-xs font-medium text-primary-light">Erken Erişim — v0.8.2</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+            <span className="text-xs font-medium text-text-secondary">Erken Erişim — v0.8.2</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1] text-white">
             Karanlıkta bir hikaye
             <br />
-            <span className="text-primary">keşfedilmeyi bekliyor.</span>
+            <span className="text-text-secondary">keşfedilmeyi bekliyor.</span>
           </h1>
 
           <p className="text-lg text-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -93,7 +93,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-16">
             <a
               href="#indirme"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-primary hover:bg-primary-dark text-white font-medium rounded-xl transition-all text-sm"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white hover:bg-white/90 text-black font-semibold rounded-xl transition-all text-sm"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -102,7 +102,7 @@ export default function Home() {
             </a>
             <a
               href="#trailer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/5 hover:bg-white/10 text-text-primary font-medium rounded-xl border border-white/10 transition-all text-sm"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/5 hover:bg-white/10 text-white font-medium rounded-xl border border-white/10 transition-all text-sm"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z" />
