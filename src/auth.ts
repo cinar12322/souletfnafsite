@@ -6,14 +6,9 @@ import Credentials from "next-auth/providers/credentials";
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Google({
-      clientId: process.env.AUTH_GOOGLE_ID,
-      clientSecret: process.env.AUTH_GOOGLE_SECRET,
-      checks: ["none"], // Bazı durumlarda issuer hatasını çözmek için "none" gerekebilir
+      checks: ["none"],
     }),
-    Discord({
-      clientId: process.env.AUTH_DISCORD_ID,
-      clientSecret: process.env.AUTH_DISCORD_SECRET,
-    }),
+    Discord,
     Credentials({
       name: "Giriş",
       credentials: {
