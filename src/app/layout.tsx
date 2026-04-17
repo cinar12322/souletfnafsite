@@ -43,10 +43,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr" className={`${inter.variable} ${creepster.variable}`}>
-      <head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2383320302375930" crossOrigin="anonymous"></script>
-      </head>
       <body className="min-h-screen antialiased">
+        <Script 
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2383320302375930"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
         <Script id="consent-logic" strategy="afterInteractive">
           {`
             const consent = localStorage.getItem("cookie_consent");
