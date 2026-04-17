@@ -1,3 +1,5 @@
+"use client";
+
 import GameCard from "@/components/GameCard";
 
 const features = [
