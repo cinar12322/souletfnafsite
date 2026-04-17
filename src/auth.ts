@@ -2,8 +2,9 @@ import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
 import Discord from "next-auth/providers/discord";
 import Credentials from "next-auth/providers/credentials";
-import { verifyTurnstileToken } from "@/lib/turnstile";
+import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
+import { verifyTurnstileToken } from "@/lib/turnstile";
 import bcrypt from "bcryptjs";
 
 const isVercelPreview = process.env.VERCEL_ENV === "preview";
@@ -11,8 +12,8 @@ const hasGoogleOAuth = Boolean(process.env.AUTH_GOOGLE_ID && process.env.AUTH_GO
 const hasDiscordOAuth = Boolean(process.env.AUTH_DISCORD_ID && process.env.AUTH_DISCORD_SECRET);
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  // On Vercel Preview deployments, OAuth callback URLs change per-deploy.
-  // Unless you whitelist every preview URL in Google/Discord, OAuth will fail.
+  adapter: PrismaAdapter(prisma),
+  session: { strategy: "jwt" }, // Required for Credentials provider
   providers: [
     ...(isVercelPreview || !hasGoogleOAuth ? [] : [Google({ checks: ["none"] })]),
     ...(isVercelPreview || !hasDiscordOAuth ? [] : [Discord]),
@@ -24,7 +25,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         turnstileToken: { label: "Turnstile Token", type: "text" },
       },
       async authorize(credentials) {
-        const token = credentials?.turnstileToken as string | undefined;
+        const token = credentials?.turnstileToken as string;
         if (!token) {
           throw new Error("Bot dogrulamasi eksik.");
         }
@@ -34,11 +35,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           throw new Error("Bot dogrulamasi basarisiz.");
         }
 
-        const email = credentials?.email as string | undefined;
-        const password = credentials?.password as string | undefined;
+        const email = credentials?.email as string;
+        const password = credentials?.password as string;
 
         if (!email || !password) {
           return null;
+        }
+
+        // Demo login check
+        if (email === "demo@soulet.com" && password === "demo123") {
+          return { id: "demo-id", name: "Demo Kullanıcı", email: "demo@soulet.com" };
         }
 
         const user = await prisma.user.findUnique({
@@ -62,8 +68,21 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
-  secret: process.env.AUTH_SECRET,
-  trustHost: true,
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (session.user) {
+        // @ts-ignore
+        session.user.id = token.id;
+      }
+      return session;
+    },
+  },
   pages: {
     signIn: "/giris",
   },
