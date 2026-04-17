@@ -11,9 +11,9 @@
   --color-surface-light: #171717;
   --color-border: #262626;
   --color-text-primary: #ffffff;
-  --color-text-secondary: #a3a3a3;
-  --color-text-muted: #737373;
-  --color-success: #ffffff;
+  --color-text-secondary: #d1d1d1;
+  --color-text-muted: #a3a3a3;
+  --color-success: #22c55e;
   --color-warning: #ffffff;
 
   --font-heading: "Inter", system-ui, sans-serif;

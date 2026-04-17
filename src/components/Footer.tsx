@@ -20,7 +20,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-medium text-text-primary mb-4">Oyun</h4>
+            <h3 className="text-sm font-semibold text-text-primary mb-4">Oyun</h3>
             <ul className="space-y-2.5">
               {[
                 { label: "Özellikler", href: "#ozellikler" },
@@ -37,7 +37,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-medium text-text-primary mb-4">Topluluk</h4>
+            <h3 className="text-sm font-semibold text-text-primary mb-4">Topluluk</h3>
             <ul className="space-y-2.5">
               {[
                 { label: "Discord", href: "https://discord.gg/4WxxJ6XXcX" },

@@ -202,12 +202,12 @@ export default function Home() {
         </form>
           
           {message && (
-            <p className={`mt-4 text-sm font-medium ${status === "success" ? "text-green-400" : "text-red-400"}`}>
+            <p className={`mt-4 text-sm font-medium ${status === "success" ? "text-success" : "text-red-400"}`}>
               {message}
             </p>
           )}
 
-          <p className="mt-4 text-[10px] text-text-muted italic text-center">
+          <p className="mt-4 text-xs text-text-muted italic text-center">
             * Spam göndermiyoruz, sadece önemli güncellemeleri paylaşacağız.
           </p>
         </div>
@@ -218,8 +218,8 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="text-xs font-medium text-white uppercase tracking-wider">Hakkımızda</span>
-              <h2 className="text-3xl font-bold mt-3 mb-6 text-white">FNAFO Nedir?</h2>
+              <h2 className="text-xs font-medium text-white uppercase tracking-wider mb-3">Hakkımızda</h2>
+              <h3 className="text-3xl font-bold mb-6 text-white">FNAFO Nedir?</h3>
               <p className="text-text-secondary leading-relaxed mb-4">
                 FNAFO, bağımsız Türk geliştiriciler tarafından yapılan bir atmosferik
                 korku-gerilim oyunudur. Terk edilmiş bir tesiste geçen hikayesiyle
@@ -231,7 +231,7 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap gap-2">
                 {["Korku", "Gerilim", "Hikaye", "Indie", "Türkçe"].map((tag) => (
-                  <span key={tag} className="px-3 py-1 text-xs bg-white/5 text-text-muted rounded-full border border-white/5">
+                  <span key={tag} className="px-3 py-1 text-xs bg-white/10 text-white rounded-full border border-white/10">
                     {tag}
                   </span>
                 ))}
