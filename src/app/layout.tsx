@@ -46,10 +46,10 @@ export default function RootLayout({
       <body className="min-h-screen antialiased">
         <Script 
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2383320302375930"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           crossOrigin="anonymous"
         />
-        <Script id="consent-logic" strategy="afterInteractive">
+        <Script id="consent-logic" strategy="lazyOnload">
           {`
             const consent = localStorage.getItem("cookie_consent");
             if (consent === "accepted") {
