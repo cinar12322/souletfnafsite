@@ -56,7 +56,6 @@ export default function RootLayout({
           `}
         </Script>
         <Providers>
-          <div className="scanline-overlay" />
           <Navbar />
           <main>{children}</main>
           <Footer />
