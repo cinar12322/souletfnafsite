@@ -118,7 +118,7 @@ export default function Home() {
           </h1>
 
           <p className="text-lg text-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed">
-            Soulet, terk edilmiş bir tesiste geçen atmosferik bir korku-gerilim oyunudur.
+            FNAFO, terk edilmiş bir tesiste geçen atmosferik bir korku-gerilim oyunudur.
             Hayatta kal, ipuçlarını topla ve karanlığın ardındaki gerçeği ortaya çıkar.
           </p>
 
@@ -157,7 +157,7 @@ export default function Home() {
           <div className="text-center mb-16">
             <span className="text-xs font-medium text-white uppercase tracking-wider">Özellikler</span>
             <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4 text-white">
-              Neden Soulet?
+              Neden FNAFO?
             </h2>
             <p className="text-text-secondary max-w-xl mx-auto">
               Modern oyun teknolojileri ile tasarlanmış, hikaye odaklı bir korku deneyimi.
@@ -201,7 +201,7 @@ export default function Home() {
           <span className="text-xs font-medium text-white uppercase tracking-wider">Erken Erişim</span>
           <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4 text-white">Waitlist'e Katıl</h2>
           <p className="text-text-secondary mb-10">
-            Soulet yayınlandığında ilk sen haberdar ol ve özel erken erişim ödüllerini kazan.
+            FNAFO yayınlandığında ilk sen haberdar ol ve özel erken erişim ödüllerini kazan.
           </p>
 
           <form className="relative group" onSubmit={handleWaitlistSubmit}>
@@ -246,14 +246,14 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <span className="text-xs font-medium text-white uppercase tracking-wider">Hakkında</span>
-              <h2 className="text-3xl font-bold mt-3 mb-6 text-white">Soulet Nedir?</h2>
+              <h2 className="text-3xl font-bold mt-3 mb-6 text-white">FNAFO Nedir?</h2>
               <p className="text-text-secondary leading-relaxed mb-4">
-                Soulet, bağımsız Türk geliştiriciler tarafından yapılan bir atmosferik
+                FNAFO, bağımsız Türk geliştiriciler tarafından yapılan bir atmosferik
                 korku-gerilim oyunudur. Terk edilmiş bir tesiste geçen hikayesiyle
                 oyuncuları karanlık bir maceraya davet eder.
               </p>
               <p className="text-text-secondary leading-relaxed mb-6">
-                Modern oyun motorları ve ses teknolojileri kullanılarak geliştirilen Soulet,
+                Modern oyun motorları ve ses teknolojileri kullanılarak geliştirilen FNAFO,
                 FNAF serisinden ilham alarak benzersiz bir Türk korku deneyimi sunmayı hedefler.
               </p>
               <div className="flex flex-wrap gap-2">
@@ -270,7 +270,7 @@ export default function Home() {
                   { label: "Geliştirici", value: "Soulet Studios" },
                   { label: "Platform", value: "Windows (macOS yakında)" },
                   { label: "Tür", value: "Korku / Gerilim / Hikaye" },
-                  { label: "Motor", value: "Unreal Engine 5" },
+                  { label: "Motor", value: "Unity 6.4" },
                   { label: "Durum", value: "Waitlist" },
                   { label: "Fiyat", value: "Ücretsiz" },
                 ].map((item) => (

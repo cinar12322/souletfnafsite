@@ -21,10 +21,19 @@ const creepster = Creepster({
 });
 
 export const metadata: Metadata = {
-  title: "Soulet — Karanlıkta Hayatta Kal",
+  title: "FNAFO | Soulet - Karanl\u0131kta Hayatta Kal",
   description:
-    "Soulet: Terk edilmiş bir tesiste geçen atmosferik korku-gerilim oyunu. Animatroniklere karşı hayatta kal.",
-  keywords: ["soulet", "oyun", "indie game", "korku", "fnaf", "türk oyun", "animatronik"],
+    "FNAFO: Terk edilmi\u015f bir tesiste ge\u00e7en atmosferik korku-gerilim oyunu. Animatroniklere kar\u015f\u0131 hayatta kal.",
+  keywords: [
+    "fnafo",
+    "soulet",
+    "oyun",
+    "indie game",
+    "korku",
+    "fnaf",
+    "t\u00fcrk oyun",
+    "animatronik",
+  ],
 };
 
 export default function RootLayout({
