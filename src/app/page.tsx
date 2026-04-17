@@ -129,12 +129,11 @@ export default function Home() {
             >
               Waitlist'e Katıl
             </a>
-            <a
-              href="#hakkinda"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/5 hover:bg-white/10 text-white font-medium rounded-xl border border-white/10 transition-all text-sm"
+            <button
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/5 hover:bg-white/10 text-white font-medium rounded-xl border border-white/10 transition-all text-sm cursor-default"
             >
               Hakkımızda
-            </a>
+            </button>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl mx-auto">

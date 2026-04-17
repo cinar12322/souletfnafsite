@@ -40,10 +40,10 @@ export default function Footer() {
             <h4 className="text-sm font-medium text-text-primary mb-4">Topluluk</h4>
             <ul className="space-y-2.5">
               {[
-                { label: "Discord", href: "#" },
+                { label: "Discord", href: "https://discord.gg/4WxxJ6XXcX" },
               ].map((item) => (
                 <li key={item.label}>
-                  <a href={item.href} className="text-sm text-text-muted hover:text-text-primary transition-colors">
+                  <a href={item.href} target="_blank" rel="noopener noreferrer" className="text-sm text-text-muted hover:text-text-primary transition-colors">
                     {item.label}
                   </a>
                 </li>
