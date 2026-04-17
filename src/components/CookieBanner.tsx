@@ -18,6 +18,11 @@ export default function CookieBanner() {
     window.location.reload(); 
   };
 
+  const handleDecline = () => {
+    localStorage.setItem("cookie_consent", "declined");
+    setShowBanner(false);
+  };
+
   if (!showBanner) return null;
 
   return (
@@ -29,12 +34,18 @@ export default function CookieBanner() {
           <span className="text-white"> Kişisel bilgileriniz asla toplanmaz ve verileriniz tamamen anonim olarak analiz edilir.</span> 
           Devam ederek bu kullanımı kabul etmiş sayılırsınız.
         </p>
-        <div className="flex">
+        <div className="flex gap-3">
           <button
             onClick={handleAccept}
-            className="w-full px-4 py-2.5 bg-white text-black text-xs font-bold rounded-lg hover:bg-white/90 transition-all cursor-pointer"
+            className="flex-1 px-4 py-2.5 bg-white text-black text-xs font-bold rounded-lg hover:bg-white/90 transition-all cursor-pointer"
           >
-            Anladım ve Kabul Ediyorum
+            Kabul Et
+          </button>
+          <button
+            onClick={handleDecline}
+            className="flex-1 px-4 py-2.5 bg-transparent text-white text-xs font-medium border border-white/10 rounded-lg hover:bg-white/5 transition-all cursor-pointer"
+          >
+            Reddet
           </button>
         </div>
       </div>
