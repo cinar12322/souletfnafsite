@@ -59,7 +59,7 @@ const features = [
 ];
 
 const stats = [
-  { value: "50K+", label: "Wishliste Ekleme" },
+  { value: "50K+", label: "Waitlist Kaydı" },
   { value: "4.8", label: "Ortalama Puan" },
   { value: "12", label: "Ay Geliştirme" },
   { value: "5", label: "Farklı Son" },
@@ -92,14 +92,10 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-16">
             <a
-              href="#indirme"
+              href="#waitlist"
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white hover:bg-white/90 text-black font-bold rounded-xl transition-all text-sm"
             >
-
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-              Ücretsiz Demo İndir
+              Waitlist'e Katıl
             </a>
             <a
               href="#trailer"
@@ -127,8 +123,8 @@ export default function Home() {
       <section id="ozellikler" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <span className="text-xs font-medium text-primary uppercase tracking-wider">Özellikler</span>
-            <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4">
+            <span className="text-xs font-medium text-white uppercase tracking-wider">Özellikler</span>
+            <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4 text-white">
               Neden Soulet?
             </h2>
             <p className="text-text-secondary max-w-xl mx-auto">
@@ -148,14 +144,14 @@ export default function Home() {
       <section id="trailer" className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <span className="text-xs font-medium text-primary uppercase tracking-wider">Medya</span>
-            <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4">Oynanış Videosu</h2>
+            <span className="text-xs font-medium text-white uppercase tracking-wider">Medya</span>
+            <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4 text-white">Oynanış Videosu</h2>
           </div>
 
           <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/5 bg-surface">
-            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-surface to-dark">
+            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-surface to-black">
               <div className="text-center">
-                <button className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-all cursor-pointer border border-primary/20">
+                <button className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-white/5 text-white hover:bg-white/10 transition-all cursor-pointer border border-white/10">
                   <svg className="w-6 h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
@@ -167,55 +163,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* === İNDİRME === */}
-      <section id="indirme" className="py-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-xs font-medium text-primary uppercase tracking-wider">İndirme</span>
-            <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4">Hemen Başla</h2>
-            <p className="text-text-secondary max-w-xl mx-auto">
-              Ücretsiz demo sürümünü indir, Soulet dünyasını keşfetmeye başla.
-            </p>
-          </div>
+      {/* === WAITLIST === */}
+      <section id="waitlist" className="py-24 px-6">
+        <div className="max-w-xl mx-auto text-center">
+          <span className="text-xs font-medium text-white uppercase tracking-wider">Erken Erişim</span>
+          <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4 text-white">Waitlist'e Katıl</h2>
+          <p className="text-text-secondary mb-10">
+            Soulet yayınlandığında ilk sen haberdar ol ve özel erken erişim ödüllerini kazan.
+          </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-            <div className="p-6 rounded-2xl border border-white/5 bg-surface hover:border-white/10 transition-all">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-white">Windows</h3>
-                  <p className="text-xs text-text-muted">Win 10/11 · 64bit · 4GB RAM</p>
-                </div>
-              </div>
-              <button className="w-full py-2.5 bg-white hover:bg-white/90 text-black text-sm font-bold rounded-lg transition-colors">
-                İndir — Demo v0.8.2
-              </button>
-            </div>
-
-            <div className="p-6 rounded-2xl border border-white/5 bg-surface opacity-50">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-text-muted" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.504 0c-.155 0-.311.012-.465.036l-.773.125a3.81 3.81 0 00-.65.168c-1.02.431-1.907 1.31-2.397 2.373-.324.7-.468 1.55-.468 2.298 0 .064.002.133.005.199l.009.13.009.064c.007.088.017.172.029.253a4.8 4.8 0 00.088.467l.023.088c.011.033.019.074.033.11.03.085.062.168.098.252l.078.174.1.19c.029.048.054.096.083.144l.09.138c.04.058.078.116.12.172l.087.111.095.111c.064.071.132.14.2.206a4.094 4.094 0 00.222.198l.024.019a3.93 3.93 0 01-.904 2.421c-.161.183-.334.351-.516.503a5.41 5.41 0 01-.323.237c-.163.106-.338.2-.52.277a4.26 4.26 0 01-.847.258C4.092 11.048 2 13.181 2 15.862c0 2.755 2.08 5.009 4.773 5.062l.143.001h10.168C19.343 20.89 21.5 18.65 21.5 15.862c0-2.588-1.953-4.696-4.429-4.992a4.166 4.166 0 01-.724-.228 3.404 3.404 0 01-.5-.269 4.44 4.44 0 01-.312-.232 3.93 3.93 0 01-.51-.5 3.93 3.93 0 01-.904-2.421l.024-.019c.077-.062.153-.128.222-.198.069-.066.137-.135.2-.206l.095-.111.087-.111c.042-.056.08-.114.12-.172l.09-.138c.029-.048.054-.096.083-.144l.1-.19.078-.174c.036-.084.068-.167.098-.252.014-.036.022-.077.033-.11l.023-.088a4.8 4.8 0 00.088-.467c.012-.081.022-.165.029-.253l.009-.064.009-.13c.003-.066.005-.135.005-.199 0-.748-.144-1.598-.468-2.298-.49-1.063-1.377-1.942-2.397-2.373a3.81 3.81 0 00-.65-.168l-.773-.125A3.53 3.53 0 0012.504 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold">macOS</h3>
-                  <p className="text-xs text-text-muted">Apple Silicon · Intel</p>
-                </div>
-              </div>
-              <button disabled className="w-full py-2.5 bg-white/5 text-text-muted text-sm font-medium rounded-lg cursor-not-allowed">
-                Yakında
-              </button>
-            </div>
-          </div>
-
-          <p className="text-center text-xs text-text-muted mt-6">
-            Minimum gereksinimler: Windows 10 64-bit, Intel i5 / Ryzen 5, 8GB RAM, GTX 1060 / RX 580
+          <form className="relative group" onSubmit={(e) => { e.preventDefault(); alert('Waitlist kaydı alındı!'); }}>
+            <input
+              type="email"
+              placeholder="E-posta adresini yaz..."
+              required
+              className="w-full px-6 py-4 bg-surface border border-white/5 rounded-2xl text-white focus:outline-none focus:border-white/20 transition-all pr-36"
+            />
+            <button
+              type="submit"
+              className="absolute right-2 top-2 bottom-2 px-6 bg-white text-black font-bold rounded-xl hover:bg-white/90 transition-all text-sm"
+            >
+              Katıl
+            </button>
+          </form>
+          <p className="mt-4 text-[10px] text-text-muted italic text-center">
+            * Spam göndermiyoruz, sadece önemli güncellemeleri paylaşacağız.
           </p>
         </div>
       </section>
@@ -225,8 +197,8 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="text-xs font-medium text-primary uppercase tracking-wider">Hakkında</span>
-              <h2 className="text-3xl font-bold mt-3 mb-6">Soulet Nedir?</h2>
+              <span className="text-xs font-medium text-white uppercase tracking-wider">Hakkında</span>
+              <h2 className="text-3xl font-bold mt-3 mb-6 text-white">Soulet Nedir?</h2>
               <p className="text-text-secondary leading-relaxed mb-4">
                 Soulet, bağımsız Türk geliştiriciler tarafından yapılan bir atmosferik
                 korku-gerilim oyunudur. Terk edilmiş bir tesiste geçen hikayesiyle
