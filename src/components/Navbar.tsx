@@ -53,7 +53,24 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             {status === "authenticated" ? (
               <>
-                <span className="text-sm text-gray-300">Hoş geldin, <span className="text-white font-medium">{session.user?.name}</span></span>
+                <div className="flex flex-col items-end">
+                  <span className="text-xs text-gray-400">Hoş geldin</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm text-white font-medium">{session.user?.name}</span>
+                    {/* @ts-ignore */}
+                    {session.user?.role === "DONATOR" && (
+                      <span className="px-1.5 py-0.5 text-[10px] bg-yellow-500/20 text-yellow-500 border border-yellow-500/30 rounded font-bold uppercase tracking-wider">
+                        Bağışçı
+                      </span>
+                    )}
+                    {/* @ts-ignore */}
+                    {session.user?.role === "ADMIN" && (
+                      <span className="px-1.5 py-0.5 text-[10px] bg-red-500/20 text-red-500 border border-red-500/30 rounded font-bold uppercase tracking-wider">
+                        Admin
+                      </span>
+                    )}
+                  </div>
+                </div>
                 <button
                   onClick={() => signOut()}
                   className="px-4 py-2 text-sm text-red-400 hover:text-red-300 transition-colors border border-red-900/30 rounded-lg hover:bg-red-900/10 focus:outline-none focus:ring-2 focus:ring-red-500"
@@ -119,8 +136,17 @@ export default function Navbar() {
             <div className="mt-3 pt-3 border-t border-white/5 flex flex-col gap-2">
               {status === "authenticated" ? (
                 <>
-                  <div className="px-4 py-2 text-sm text-gray-300">
-                    Hoş geldin, <span className="text-white font-medium">{session.user?.name}</span>
+                  <div className="px-4 py-2 flex flex-col items-start gap-1">
+                    <span className="text-xs text-gray-400">Hoş geldin</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-white font-medium">{session.user?.name}</span>
+                      {/* @ts-ignore */}
+                      {session.user?.role === "DONATOR" && (
+                        <span className="px-1.5 py-0.5 text-[10px] bg-yellow-500/20 text-yellow-500 border border-yellow-500/30 rounded font-bold uppercase tracking-wider">
+                          Bağışçı
+                        </span>
+                      )}
+                    </div>
                   </div>
                   <button
                     onClick={() => signOut()}
