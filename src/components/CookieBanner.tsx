@@ -15,37 +15,26 @@ export default function CookieBanner() {
   const handleAccept = () => {
     localStorage.setItem("cookie_consent", "accepted");
     setShowBanner(false);
-    // İleride buraya Google Analytics / Clarity tetikleyicisi eklenebilir
-    window.location.reload(); // Çerezlerin aktif olması için sayfayı yenile
-  };
-
-  const handleDecline = () => {
-    localStorage.setItem("cookie_consent", "declined");
-    setShowBanner(false);
+    window.location.reload(); 
   };
 
   if (!showBanner) return null;
 
   return (
-    <div className="fixed bottom-6 left-6 right-6 z-[200] md:max-w-md md:left-auto">
-      <div className="bg-black border border-white/10 p-6 rounded-2xl shadow-2xl backdrop-blur-xl">
-        <h3 className="text-white font-semibold mb-2">Çerez Politikası</h3>
+    <div className="fixed inset-0 z-[200] flex items-end justify-center md:justify-end p-6 pointer-events-none">
+      <div className="bg-black border border-white/10 p-6 rounded-2xl shadow-2xl backdrop-blur-xl w-full max-w-md pointer-events-auto animate-in fade-in slide-in-from-bottom-4 duration-500">
+        <h3 className="text-white font-semibold mb-2">Çerez Kullanımı ve Gizlilik</h3>
         <p className="text-text-secondary text-sm mb-6 leading-relaxed">
-          Deneyiminizi geliştirmek ve trafiği analiz etmek için çerezleri kullanıyoruz. 
-          Kabul ederek anonim verilerinizin işlenmesine izin vermiş olursunuz.
+          Soulet deneyimini en iyi şekilde yaşamanız için çerezleri kullanıyoruz. 
+          <span className="text-white"> Kişisel bilgileriniz asla toplanmaz ve verileriniz tamamen anonim olarak analiz edilir.</span> 
+          Devam ederek bu kullanımı kabul etmiş sayılırsınız.
         </p>
-        <div className="flex gap-3">
+        <div className="flex">
           <button
             onClick={handleAccept}
-            className="flex-1 px-4 py-2 bg-white text-black text-xs font-bold rounded-lg hover:bg-white/90 transition-all cursor-pointer"
+            className="w-full px-4 py-2.5 bg-white text-black text-xs font-bold rounded-lg hover:bg-white/90 transition-all cursor-pointer"
           >
-            Kabul Et
-          </button>
-          <button
-            onClick={handleDecline}
-            className="flex-1 px-4 py-2 bg-transparent text-white text-xs font-medium border border-white/10 rounded-lg hover:bg-white/5 transition-all cursor-pointer"
-          >
-            Reddet
+            Anladım ve Kabul Ediyorum
           </button>
         </div>
       </div>
