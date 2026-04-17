@@ -20,14 +20,15 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self';",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://www.clarity.ms https://challenges.cloudflare.com https://static.cloudflareinsights.com https://fundingchoicesmessages.google.com;",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://www.clarity.ms https://challenges.cloudflare.com https://static.cloudflareinsights.com https://fundingchoicesmessages.google.com https://*.adtrafficquality.google;",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fundingchoicesmessages.google.com;",
               "img-src 'self' data: https://*.google-analytics.com https://*.googlesyndication.com https://*.clarity.ms https://*.doubleclick.net https://fundingchoicesmessages.google.com;",
-              "connect-src 'self' https://*.google-analytics.com https://*.googlesyndication.com https://*.analytics.google.com https://*.clarity.ms https://challenges.cloudflare.com https://*.doubleclick.net https://fundingchoicesmessages.google.com;",
+              "connect-src 'self' https://*.google-analytics.com https://*.googlesyndication.com https://*.analytics.google.com https://*.clarity.ms https://challenges.cloudflare.com https://*.doubleclick.net https://fundingchoicesmessages.google.com https://*.adtrafficquality.google;",
               "frame-src 'self' https://challenges.cloudflare.com https://googleads.g.doubleclick.net https://www.google.com https://fundingchoicesmessages.google.com;",
               "font-src 'self' https://fonts.gstatic.com;",
               "frame-ancestors 'self';",
               "upgrade-insecure-requests;",
+              "require-trusted-types-for 'script';",
             ].join(" "),
           },
           {
