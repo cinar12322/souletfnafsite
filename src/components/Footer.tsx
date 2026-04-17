@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="border-t border-white/5">
@@ -55,8 +57,8 @@ export default function Footer() {
         <div className="mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-text-muted">© 2026 Soulet Studios. Tüm hakları saklıdır.</p>
           <div className="flex gap-6">
-            <a href="#" className="text-xs text-text-muted hover:text-text-primary transition-colors">Gizlilik Politikası</a>
-            <a href="#" className="text-xs text-text-muted hover:text-text-primary transition-colors">Kullanım Şartları</a>
+            <Link href="/gizlilik-politikasi" className="text-xs text-text-muted hover:text-text-primary transition-colors">Gizlilik Politikası</Link>
+            <Link href="/kullanim-sartlari" className="text-xs text-text-muted hover:text-text-primary transition-colors">Kullanım Şartları</Link>
           </div>
         </div>
       </div>
