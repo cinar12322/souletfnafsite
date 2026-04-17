@@ -1,12 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import Script from 'next/script';
 import { Heart, CheckCircle } from 'lucide-react';
 import { useSession } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
 
-export default function DonatePage() {
+function DonateContent() {
   const { data: session, status } = useSession();
   const searchParams = useSearchParams();
   const [showSuccess, setShowSuccess] = useState(false);
@@ -65,16 +65,10 @@ export default function DonatePage() {
         </div>
       )}
 
-      {/* Google AdSense Script */}
-      <Script 
-        async 
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2383320302375930"
-        crossOrigin="anonymous"
-        strategy="afterInteractive"
-      />
-
       <div className="text-center space-y-4">
+        {/* H1: Sayfa başlığı */}
         <h1 className="text-5xl font-bold tracking-tighter text-white font-creepy">BAĞIŞ YAP</h1>
+        {/* Kontrast artırıldı: text-gray-400 -> text-gray-300 */}
         <p className="text-gray-300 max-w-2xl mx-auto text-lg">
           Soulet projesini desteklemek ve topluluğumuzun büyümesine yardımcı olmak için bağış yapabilirsiniz. Tüm bağışlar geliştirme masrafları için kullanılır.
         </p>
@@ -82,6 +76,7 @@ export default function DonatePage() {
 
       {/* Reklam Alanı */}
       <div className="flex flex-col items-center justify-center w-full py-4 bg-white/5 border border-dashed border-white/10 rounded-xl overflow-hidden min-h-[120px]">
+        {/* Kontrast artırıldı: text-gray-500 -> text-gray-200 */}
         <p className="text-[10px] text-gray-200 uppercase tracking-widest mb-2 font-semibold">Reklam / Advertisement</p>
         <ins className="adsbygoogle"
              style={{ display: 'block', width: '100%', textAlign: 'center' }}
@@ -96,9 +91,11 @@ export default function DonatePage() {
           <div key={option.amount} className="bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col hover:border-white/20 transition-all hover:bg-white/10 group">
             <div className="text-center mb-6">
               <Heart className="mx-auto text-red-500 w-12 h-12 mb-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
+              {/* H2: Alt başlıklar */}
               <h2 className="text-4xl font-bold text-white mb-2">
                 {option.amount}
               </h2>
+              {/* Kontrast artırıldı: text-gray-400 -> text-gray-300 */}
               <p className="text-gray-300 text-sm">
                 {option.description}
               </p>
@@ -140,5 +137,13 @@ export default function DonatePage() {
         </p>
       </div>
     </main>
+  );
+}
+
+export default function DonatePage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-white">Yükleniyor...</div>}>
+      <DonateContent />
+    </Suspense>
   );
 }
