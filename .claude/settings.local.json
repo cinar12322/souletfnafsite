@@ -1,0 +1,36 @@
+{
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://openrouter.ai/api",
+    "ANTHROPIC_AUTH_TOKEN": "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",
+    "ANTHROPIC_API_KEY": "",
+    "ANTHROPIC_MODEL": "openai/gpt-oss-120b:free"
+  },
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Skill(gsd:discuss-phase)",
+      "mcp__plugin_everything-claude-code_exa__get_code_context_exa",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(node \"C:/Users/pc/.claude/get-shit-done/bin/gsd-tools.cjs\" state advance-plan)",
+      "Bash(node \"C:/Users/pc/.claude/get-shit-done/bin/gsd-tools.cjs\" state update-progress)",
+      "Bash(node:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(gh repo:*)",
+      "Bash(curl -s https://api.github.com/repos/HKUDS/OpenSpace)",
+      "Bash(curl -s https://raw.githubusercontent.com/HKUDS/OpenSpace/main/README.md)",
+      "Bash(git clone:*)",
+      "Bash(openspace-mcp:*)",
+      "Read(//c/Users/pc/OpenSpace/**)",
+      "Bash(pip install:*)",
+      "Bash(mkdir -p \"/c/Users/pc/Downloads/claudecode/skills\")",
+      "Bash(cp -r \"/c/Users/pc/OpenSpace/openspace/host_skills/delegate-task\" \"/c/Users/pc/Downloads/claudecode/skills/\")",
+      "Bash(cp -r \"/c/Users/pc/OpenSpace/openspace/host_skills/skill-discovery\" \"/c/Users/pc/Downloads/claudecode/skills/\")",
+      "Read(//c/Users/pc/.claude/**)",
+      "mcp__plugin_everything-claude-code_playwright__browser_navigate",
+      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__navigate_page",
+      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__take_screenshot",
+      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__list_console_messages"
+    ]
+  }
+}

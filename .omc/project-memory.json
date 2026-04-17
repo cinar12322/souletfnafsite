@@ -1,0 +1,221 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1776382638374,
+  "projectRoot": "C:\\Users\\pc\\Downloads\\hile sitesi",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "next",
+        "version": "16.2.4",
+        "category": "fullstack"
+      },
+      {
+        "name": "react",
+        "version": "19.2.5",
+        "category": "frontend"
+      },
+      {
+        "name": "react-dom",
+        "version": "19.2.5",
+        "category": "frontend"
+      }
+    ],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "npm run build",
+    "testCommand": null,
+    "lintCommand": "npm run lint",
+    "devCommand": "npm run dev",
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start",
+      "lint": "next lint"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": "ES modules",
+    "testPattern": null,
+    "fileOrganization": "type-based"
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "src"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 1,
+      "lastAccessed": 1776382638310,
+      "keyFiles": [
+        "auth.ts"
+      ]
+    },
+    "src\\app": {
+      "path": "src\\app",
+      "purpose": "Application code",
+      "fileCount": 3,
+      "lastAccessed": 1776382638332,
+      "keyFiles": [
+        "globals.css",
+        "layout.tsx",
+        "page.tsx"
+      ]
+    },
+    "src\\components": {
+      "path": "src\\components",
+      "purpose": "UI components",
+      "fileCount": 3,
+      "lastAccessed": 1776382638333,
+      "keyFiles": [
+        "Footer.tsx",
+        "GameCard.tsx",
+        "Navbar.tsx"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "src\\app\\layout.tsx",
+      "accessCount": 9,
+      "lastAccessed": 1776386695186,
+      "type": "file"
+    },
+    {
+      "path": "package.json",
+      "accessCount": 4,
+      "lastAccessed": 1776387573583,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\globals.css",
+      "accessCount": 3,
+      "lastAccessed": 1776384427996,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\giris\\page.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1776384430939,
+      "type": "file"
+    },
+    {
+      "path": "src\\components\\Footer.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1776384436957,
+      "type": "file"
+    },
+    {
+      "path": "src\\components\\Providers.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1776384434392,
+      "type": "file"
+    },
+    {
+      "path": "prisma\\schema.prisma",
+      "accessCount": 2,
+      "lastAccessed": 1776384867700,
+      "type": "file"
+    },
+    {
+      "path": ".env",
+      "accessCount": 2,
+      "lastAccessed": 1776384881524,
+      "type": "file"
+    },
+    {
+      "path": "src\\lib\\prisma.ts",
+      "accessCount": 2,
+      "lastAccessed": 1776386831075,
+      "type": "file"
+    },
+    {
+      "path": "src\\auth.ts",
+      "accessCount": 1,
+      "lastAccessed": 1776383540280,
+      "type": "file"
+    },
+    {
+      "path": ".env.local",
+      "accessCount": 1,
+      "lastAccessed": 1776383610517,
+      "type": "file"
+    },
+    {
+      "path": "src",
+      "accessCount": 1,
+      "lastAccessed": 1776383701061,
+      "type": "directory"
+    },
+    {
+      "path": "src\\app\\page.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1776384415877,
+      "type": "file"
+    },
+    {
+      "path": "src\\components\\Navbar.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1776384432557,
+      "type": "file"
+    },
+    {
+      "path": "src\\components\\GameCard.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1776384436221,
+      "type": "file"
+    },
+    {
+      "path": "CLAUDE.md",
+      "accessCount": 1,
+      "lastAccessed": 1776384627916,
+      "type": "file"
+    },
+    {
+      "path": "",
+      "accessCount": 1,
+      "lastAccessed": 1776384712528,
+      "type": "directory"
+    },
+    {
+      "path": "prisma.config.ts",
+      "accessCount": 1,
+      "lastAccessed": 1776384843472,
+      "type": "file"
+    },
+    {
+      "path": "tsconfig.json",
+      "accessCount": 1,
+      "lastAccessed": 1776386743928,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}
