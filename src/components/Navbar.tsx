@@ -54,6 +54,12 @@ export default function Navbar() {
             >
               Giriş Yap
             </Link>
+            <Link
+              href="/kayit"
+              className="px-4 py-2 text-sm text-text-secondary hover:text-text-primary transition-colors border border-white/10 rounded-lg hover:bg-white/5"
+            >
+              Kayıt Ol
+            </Link>
             <a
               href="#indirme"
               className="px-5 py-2 text-sm font-semibold bg-white hover:bg-white/90 text-black rounded-lg transition-colors"
