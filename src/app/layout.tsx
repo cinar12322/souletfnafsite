@@ -21,9 +21,9 @@ const creepster = Creepster({
 });
 
 export const metadata: Metadata = {
-  title: "FNAFO | Soulet - Karanl\u0131kta Hayatta Kal",
+  title: "FNAFO | Soulet - Karanlıkta Hayatta Kal",
   description:
-    "FNAFO: Terk edilmi\u015f bir tesiste ge\u00e7en atmosferik korku-gerilim oyunu. Animatroniklere kar\u015f\u0131 hayatta kal.",
+    "FNAFO: Terk edilmiş bir tesiste geçen atmosferik korku-gerilim oyunu. Animatroniklere karşı hayatta kal.",
   keywords: [
     "fnafo",
     "soulet",
@@ -31,9 +31,36 @@ export const metadata: Metadata = {
     "indie game",
     "korku",
     "fnaf",
-    "t\u00fcrk oyun",
+    "türk oyun",
     "animatronik",
   ],
+  openGraph: {
+    title: "FNAFO | Soulet - Karanlıkta Hayatta Kal",
+    description: "Terk edilmiş bir tesiste geçen atmosferik korku-gerilim oyunu. Animatroniklere karşı hayatta kal.",
+    url: "https://soulet.com.tr",
+    siteName: "FNAFO",
+    images: [
+      {
+        url: "/og-image.png", // Buraya public/og-image.png dosyası koyman lazım
+        width: 1200,
+        height: 630,
+        alt: "FNAFO Oyun Kapak Görseli",
+      },
+    ],
+    locale: "tr_TR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FNAFO | Soulet - Karanlıkta Hayatta Kal",
+    description: "Terk edilmiş bir tesiste geçen atmosferik korku-gerilim oyunu. Animatroniklere karşı hayatta kal.",
+    images: ["/og-image.png"],
+    creator: "@SouletStudios",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
