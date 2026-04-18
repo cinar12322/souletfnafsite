@@ -8,35 +8,56 @@
   --color-danger: #ef4444;
   --color-dark: #000000;
   --color-surface: #0a0a0a;
-  --color-surface-light: #171717;
-  --color-border: #262626;
+  --color-surface-light: #121212;
+  --color-border: #1a1a1a;
   --color-text-primary: #ffffff;
-  --color-text-secondary: #d1d1d1;
-  --color-text-muted: #a3a3a3;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
   --color-success: #22c55e;
-  --color-warning: #ffffff;
+  --color-warning: #f59e0b;
 
-  --font-heading: "Inter", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  --font-creepy: var(--font-creepy);
+  --font-body: var(--font-body);
+
+  --animate-glow: glow 4s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse-slow 4s ease-in-out infinite;
+
+  @keyframes glow {
+    0%, 100% { opacity: 0.3; filter: blur(80px); }
+    50% { opacity: 0.6; filter: blur(120px); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
 }
 
 html {
   scroll-behavior: smooth;
+  background-color: #000000;
 }
 
 body {
   background-color: #000000;
   color: var(--color-text-primary);
   font-family: var(--font-body);
+  overflow-x: hidden;
 }
 
 ::selection {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -44,13 +65,28 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #262626;
-  border-radius: 2px;
+  background: #1a1a1a;
+  border-radius: 10px;
 }
 
-/* Clean minimalist theme */
-body {
-  background-color: #000000;
-  color: var(--color-text-primary);
-  font-family: var(--font-body);
+::-webkit-scrollbar-thumb:hover {
+  background: #262626;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.horror-title {
+  font-family: var(--font-creepy);
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.fog-overlay {
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8), #000000);
 }

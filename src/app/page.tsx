@@ -107,60 +107,67 @@ export default function Home() {
     <>
       {/* === HERO === */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-transparent" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full bg-white/5 blur-[120px]" />
+        {/* Animated Background Layers */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-white/5 rounded-full blur-[120px] animate-glow" />
+          <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-white/2 rounded-full blur-[150px] animate-glow [animation-delay:2s]" />
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-20" />
+        </div>
 
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1] text-white">
-            Karanlıkta bir hikaye
-            <br />
-            <span className="text-text-secondary">keşfedilmeyi bekliyor.</span>
+        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto pt-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-8 animate-pulse-slow">
+            <span className="w-1.5 h-1.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
+            <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/80">Erken Geliştirme Aşaması</span>
+          </div>
+
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight mb-8 leading-[1] text-white horror-title">
+            KARANLIKTA BİR <br />
+            <span className="text-white/40">HİKAYE</span>
           </h1>
 
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed">
-            FNAFO, terk edilmiş bir tesiste geçen atmosferik bir korku-gerilim oyunudur.
-            Hayatta kal, ipuçlarını topla ve karanlığın ardındaki gerçeği ortaya çıkar.
+          <p className="text-lg sm:text-xl text-text-secondary max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+            FNAFO, terk edilmiş bir tesiste geçen atmosferik bir korku deneyimidir. 
+            Hayatta kal, ipuçlarını topla ve karanlığın ardındaki <span className="text-white">kan donduran gerçeği</span> ortaya çıkar.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20">
             <a
               href="#waitlist"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white hover:bg-white/90 text-black font-bold rounded-xl transition-all text-sm"
+              className="group relative inline-flex items-center justify-center px-10 py-4 bg-white text-black font-black rounded-2xl transition-all hover:scale-105 active:scale-95 overflow-hidden"
             >
-              Waitlist'e Katıl
+              <span className="relative z-10 tracking-widest uppercase text-xs">Waitlist'e Katıl</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-white via-gray-200 to-white opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
             <button
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/5 hover:bg-white/10 text-white font-medium rounded-xl border border-white/10 transition-all text-sm cursor-default"
+              className="inline-flex items-center justify-center px-10 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-2xl border border-white/10 transition-all text-xs uppercase tracking-widest glass"
             >
-              Hakkımızda
+              Fragmanı İzle
             </button>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 max-w-3xl mx-auto py-10 border-t border-white/5">
             {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-2xl font-bold text-text-primary">{stat.value}</div>
-                <div className="text-xs text-text-muted mt-1">{stat.label}</div>
+              <div key={stat.label} className="group cursor-default">
+                <div className="text-3xl font-black text-white group-hover:text-white transition-colors tracking-tighter">{stat.value}</div>
+                <div className="text-[10px] uppercase tracking-widest text-text-muted mt-2 font-bold group-hover:text-white/60 transition-colors">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
+
+        {/* Fog effect bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-64 fog-overlay pointer-events-none" />
       </section>
 
       {/* === ÖZELLİKLER === */}
-      <section id="ozellikler" className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-xs font-medium text-white uppercase tracking-wider">Özellikler</span>
-            <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4 text-white">
-              Neden FNAFO?
-            </h2>
-            <p className="text-text-secondary max-w-xl mx-auto">
-              Modern oyun teknolojileri ile tasarlanmış, hikaye odaklı bir korku deneyimi.
-            </p>
+      <section id="ozellikler" className="py-32 px-6 relative">
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="flex flex-col items-center text-center mb-20">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white horror-title mb-6">NEDEN FNAFO?</h2>
+            <div className="h-1 w-20 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature) => (
               <GameCard key={feature.title} {...feature} />
             ))}
@@ -169,87 +176,91 @@ export default function Home() {
       </section>
 
       {/* === WAITLIST === */}
-      <section id="waitlist" className="py-24 px-6">
-        <div className="max-w-xl mx-auto text-center">
-          <span className="text-xs font-medium text-white uppercase tracking-wider">Erken Erişim</span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4 text-white">Waitlist'e Katıl</h2>
-          <p className="text-text-secondary mb-10">
-            FNAFO yayınlandığında ilk sen haberdar ol ve özel erken erişim ödüllerini kazan.
+      <section id="waitlist" className="py-32 px-6 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-white/[0.02] blur-[120px] rounded-full" />
+        
+        <div className="max-w-2xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white horror-title mb-6">SIRAYA GİR</h2>
+          <p className="text-text-secondary mb-12 text-lg font-light">
+            FNAFO yayınlandığında ilk sen haberdar ol ve <span className="text-white font-medium">özel erken erişim ödüllerini</span> kazan.
           </p>
 
-          <form className="relative group" onSubmit={handleWaitlistSubmit}>
-            <div className="mb-4">
-              <TurnstileWidget onVerify={setTurnstileToken} />
+          <form className="space-y-6" onSubmit={handleWaitlistSubmit}>
+            <div className="glass p-2 rounded-3xl border border-white/10">
+              <div className="mb-4 mt-2">
+                <TurnstileWidget onVerify={setTurnstileToken} />
+              </div>
+              <div className="relative flex flex-col sm:flex-row gap-2">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Korku dolu e-postanı buraya bırak..."
+                  required
+                  disabled={status === "loading" || status === "success"}
+                  className="w-full px-8 py-5 bg-black/40 border border-white/5 rounded-2xl text-white focus:outline-none focus:border-white/20 transition-all disabled:opacity-50 placeholder:text-white/20 font-light"
+                />
+                <button
+                  type="submit"
+                  disabled={status === "loading" || status === "success"}
+                  className="px-10 py-5 bg-white text-black font-black rounded-2xl hover:bg-gray-200 transition-all disabled:opacity-50 uppercase tracking-widest text-xs shrink-0"
+                >
+                  {status === "loading" ? "..." : "Sıraya Gir"}
+                </button>
+              </div>
             </div>
-            <div className="relative">
-              <input
-                type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="E-posta adresini yaz..."
-              required
-              disabled={status === "loading" || status === "success"}
-              className="w-full px-6 py-4 bg-surface border border-white/5 rounded-2xl text-white focus:outline-none focus:border-white/20 transition-all pr-36 disabled:opacity-50"
-            />
-            <button
-              type="submit"
-              disabled={status === "loading" || status === "success"}
-              className="absolute right-2 top-2 bottom-2 px-6 bg-white text-black font-bold rounded-xl hover:bg-white/90 transition-all text-sm disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {status === "loading" ? "..." : "Katıl"}
-            </button>
-          </div>
-        </form>
+          </form>
           
           {message && (
-            <p className={`mt-4 text-sm font-medium ${status === "success" ? "text-success" : "text-red-400"}`}>
-              {message}
-            </p>
+            <div className={`mt-6 p-4 rounded-2xl border ${status === "success" ? "bg-green-500/10 border-green-500/20 text-green-400" : "bg-red-500/10 border-red-500/20 text-red-400"} animate-pulse-slow`}>
+              <p className="text-sm font-bold uppercase tracking-widest">{message}</p>
+            </div>
           )}
-
-          <p className="mt-4 text-xs text-text-muted italic text-center">
-            * Spam göndermiyoruz, sadece önemli güncellemeleri paylaşacağız.
-          </p>
         </div>
       </section>
 
       {/* === HAKKIMIZDA === */}
-      <section id="hakkinda" className="py-24 px-6 border-t border-white/5">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-xs font-medium text-white uppercase tracking-wider mb-3">Hakkımızda</h2>
-              <h3 className="text-3xl font-bold mb-6 text-white">FNAFO Nedir?</h3>
-              <p className="text-text-secondary leading-relaxed mb-4">
-                FNAFO, bağımsız Türk geliştiriciler tarafından yapılan bir atmosferik
-                korku-gerilim oyunudur. Terk edilmiş bir tesiste geçen hikayesiyle
-                oyuncuları karanlık bir maceraya davet eder.
-              </p>
-              <p className="text-text-secondary leading-relaxed mb-6">
-                Modern oyun motorları ve ses teknolojileri kullanılarak geliştirilen FNAFO,
-                FNAF serisinden ilham alarak benzersiz bir Türk korku deneyimi sunmayı hedefler.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {["Korku", "Gerilim", "Hikaye", "Indie", "Türkçe"].map((tag) => (
-                  <span key={tag} className="px-3 py-1 text-xs bg-white/10 text-white rounded-full border border-white/10">
-                    {tag}
-                  </span>
-                ))}
+      <section id="hakkinda" className="py-32 px-6 border-t border-white/5 bg-surface/30">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-white/[0.03] rounded-[2rem] blur-2xl group-hover:bg-white/[0.05] transition-all" />
+              <div className="relative">
+                <h2 className="text-4xl font-bold mb-8 text-white horror-title">FNAFO NEDİR?</h2>
+                <div className="space-y-6 text-text-secondary leading-relaxed font-light text-lg">
+                  <p>
+                    FNAFO, bağımsız Türk geliştiriciler tarafından Unity 6 motoruyla inşa edilen 
+                    bir <span className="text-white">atmosferik korku-gerilim</span> oyunudur. 
+                  </p>
+                  <p>
+                    Modern ses teknolojileri ve dinamik aydınlatma sistemleri kullanılarak geliştirilen FNAFO, 
+                    yerli ve milli bir korku deneyimi sunmayı hedefler.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-3 mt-10">
+                  {["Korku", "Gerilim", "Hikaye", "Indie", "Türkçe"].map((tag) => (
+                    <span key={tag} className="px-5 py-2 text-[10px] uppercase tracking-widest bg-white/5 text-white/60 rounded-xl border border-white/5 font-bold glass">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
-            <div className="rounded-2xl border border-white/5 bg-surface p-8">
-              <div className="space-y-4">
+
+            <div className="glass rounded-[2rem] p-10 border border-white/10 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/[0.02] rounded-full blur-3xl -mr-16 -mt-16" />
+              <div className="space-y-6 relative z-10">
                 {[
                   { label: "Geliştirici", value: "Soulet Studios" },
-                  { label: "Platform", value: "Windows (macOS yakında)" },
-                  { label: "Tür", value: "Korku / Gerilim / Hikaye" },
+                  { label: "Platform", value: "Windows / macOS" },
+                  { label: "Tür", value: "Korku / Gerilim" },
                   { label: "Motor", value: "Unity 6.4" },
                   { label: "Durum", value: "Waitlist" },
                   { label: "Fiyat", value: "Ücretsiz" },
                 ].map((item) => (
-                  <div key={item.label} className="flex justify-between items-center py-2 border-b border-white/5 last:border-0">
-                    <span className="text-sm text-text-muted">{item.label}</span>
-                    <span className="text-sm font-medium text-text-primary">{item.value}</span>
+                  <div key={item.label} className="flex justify-between items-center py-3 border-b border-white/5 last:border-0 group/item">
+                    <span className="text-xs uppercase tracking-[0.2em] text-text-muted font-bold group-hover/item:text-white transition-colors">{item.label}</span>
+                    <span className="text-sm font-medium text-white group-hover/item:scale-105 transition-transform origin-right">{item.value}</span>
                   </div>
                 ))}
               </div>
