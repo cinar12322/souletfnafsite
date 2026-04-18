@@ -34,14 +34,15 @@ export const metadata: Metadata = {
     "türk oyun",
     "animatronik",
   ],
+  themeColor: "#000000", // Discord'un yanındaki o renkli çizgi (Siyah)
   openGraph: {
     title: "FNAFO | Soulet - Karanlıkta Hayatta Kal",
     description: "Terk edilmiş bir tesiste geçen atmosferik korku-gerilim oyunu. Animatroniklere karşı hayatta kal.",
     url: "https://soulet.com.tr",
-    siteName: "FNAFO",
+    siteName: "Soulet Studios",
     images: [
       {
-        url: "/og-image.png", // Buraya public/og-image.png dosyası koyman lazım
+        url: "https://soulet.com.tr/og-image.png", // Full URL bazen daha iyi çalışır
         width: 1200,
         height: 630,
         alt: "FNAFO Oyun Kapak Görseli",
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "FNAFO | Soulet - Karanlıkta Hayatta Kal",
     description: "Terk edilmiş bir tesiste geçen atmosferik korku-gerilim oyunu. Animatroniklere karşı hayatta kal.",
-    images: ["/og-image.png"],
+    images: ["https://soulet.com.tr/og-image.png"],
     creator: "@SouletStudios",
   },
   robots: {
